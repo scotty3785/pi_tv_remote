@@ -17,6 +17,7 @@
   font-size: 20px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  width: 100px;
 }
 
 .btn:hover {
@@ -42,15 +43,23 @@
         button.disabled = true;
         xhttp.open("GET", urlCommand, true);
         xhttp.send();
-        setTimeout(function() { button.style.opacity = 1; button.disabled = false; }, 3000);
-        document.getElementById('console').innerHTML += buttonId;
-        document.getElementById('console').innerHTML +=  window.location.href 
+        setTimeout(function() { button.style.opacity = 1; button.disabled = false; }, 300);
+        //document.getElementById('console').innerHTML += buttonId;
+        //document.getElementById('console').innerHTML +=  window.location.href 
       }
     </script>
   </head>
 
   <body>
-	<button id="KEY_POWER" class="btn" onclick="sendButton(this.id)">POWER</button><button id="KEY_MUTE" class="btn" onclick="sendButton(this.id)">MUTE</button><button id="KEY_SWITCHVIDEOMODE" class="btn" onclick="sendButton(this.id)">Source</button>
+	<button id="KEY_POWER" class="btn" onclick="sendButton(this.id)">&Phi;</button><button id="KEY_CYCLEWINDOWS" class="btn" onclick="sendButton(this.id)">Source</button><br/><br/>
+    <button id="KEY_1" class="btn" onclick="sendButton(this.id)">1</button><button id="KEY_2" class="btn" onclick="sendButton(this.id)">2</button><button id="KEY_3" class="btn" onclick="sendButton(this.id)">3</button><br/>
+    <button id="KEY_4" class="btn" onclick="sendButton(this.id)">4</button><button id="KEY_5" class="btn" onclick="sendButton(this.id)">5</button><button id="KEY_6" class="btn" onclick="sendButton(this.id)">6</button><br/>
+    <button id="KEY_7" class="btn" onclick="sendButton(this.id)">7</button><button id="KEY_8" class="btn" onclick="sendButton(this.id)">8</button><button id="KEY_9" class="btn" onclick="sendButton(this.id)">9</button><br/>
+    <button id="KEY_INFO" class="btn" onclick="sendButton(this.id)">i</button><button id="KEY_0" class="btn" onclick="sendButton(this.id)">0</button><button id="KEY_PREVIOUS" class="btn" onclick="sendButton(this.id)">PRE</button><br/><br/>
+    <button id="KEY_VOLUMEUP" class="btn" onclick="sendButton(this.id)">V+</button><button id="KEY_MUTE" class="btn" onclick="sendButton(this.id)">MUTE</button><button id="KEY_CHANNELUP" class="btn" onclick="sendButton(this.id)">P+</button><br/>
+    <button id="KEY_VOLUMEDOWN" class="btn" onclick="sendButton(this.id)">V-</button><button id="KEY_LIST" class="btn" onclick="sendButton(this.id)">LIST</button><button id="KEY_CHANNELDOWN" class="btn" onclick="sendButton(this.id)">P-</button><br/><br/>
+    <button id="KEY_RETURN" class="btn" onclick="sendButton(this.id)">&crarr;</button><button id="KEY_DOWN" class="btn" onclick="sendButton(this.id)">DOWN</button><button id="KEY_EXIT"" class="btn" onclick="sendButton(this.id)">EXIT</button>
+    
 	<p id="console"></p>
   </body>
 </html>

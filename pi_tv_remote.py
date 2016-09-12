@@ -19,10 +19,11 @@ def main():
 def send_ir_command(button):
     command = ['irsend','SEND_ONCE']
     if button == "KEY_POWER":
-        command.append('Samsumg2')
+        command.append('Samsung2')
     else:
         command.append('Samsung1')
     command.append(button)
+    command = " ".join(command)
     templateData = {'button':button}
     subprocess.call(command, shell=True)
     return "OK"
