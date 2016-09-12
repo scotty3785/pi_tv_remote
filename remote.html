@@ -36,7 +36,8 @@
 	    var button = document.getElementById(buttonId);
         //var buttonName = document.getElementById("button" + buttonId);
         button.style.opacity = 0.5;
-        setTimeout(function() { button.style.opacity = 1 }, 300);
+		button.disabled = true;
+        setTimeout(function() { button.style.opacity = 1; button.disabled = false; }, 3000);
 		document.getElementById('console').innerHTML += buttonId;
       }
     </script>
