@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title><DASHBOARD_TITLE></title>
+    <title>Pi Remote Control</title>
 	<style>
 		.btn {
   background: #3498db;
@@ -33,18 +33,24 @@
     <script>
 
       var sendButton = function(buttonId) {
-	    var button = document.getElementById(buttonId);
+        var xhttp = new XMLHttpRequest();
+        
+        var button = document.getElementById(buttonId);
+        var urlCommand = window.location.href + "send/" + buttonId;
         //var buttonName = document.getElementById("button" + buttonId);
         button.style.opacity = 0.5;
-		button.disabled = true;
+        button.disabled = true;
+        xhttp.open("GET", urlCommand, true);
+        xhttp.send();
         setTimeout(function() { button.style.opacity = 1; button.disabled = false; }, 3000);
-		document.getElementById('console').innerHTML += buttonId;
+        document.getElementById('console').innerHTML += buttonId;
+        document.getElementById('console').innerHTML +=  window.location.href 
       }
     </script>
   </head>
 
   <body>
-	<button id="POWER" class="btn" onclick="sendButton(this.id)">POWER</button><button id="MUTE" class="btn" onclick="sendButton(this.id)">MUTE</button><button id="SOURCE" class="btn" onclick="sendButton(this.id)">Source</button>
+	<button id="KEY_POWER" class="btn" onclick="sendButton(this.id)">POWER</button><button id="KEY_MUTE" class="btn" onclick="sendButton(this.id)">MUTE</button><button id="KEY_SWITCHVIDEOMODE" class="btn" onclick="sendButton(this.id)">Source</button>
 	<p id="console"></p>
   </body>
 </html>
