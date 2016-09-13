@@ -1,8 +1,10 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pi Remote Control</title>
-	<style>
-		.btn {
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style>
+        .btn {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
   background-image: -moz-linear-gradient(top, #3498db, #2980b9);
@@ -29,13 +31,18 @@
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-	</style>
+    </style>
 
     <script>
 
       var sendButton = function(buttonId) {
         var xhttp = new XMLHttpRequest();
         
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("console").innerHTML = this.responseText;
+            }
+        };
         var button = document.getElementById(buttonId);
         var urlCommand = window.location.href + "send/" + buttonId;
         //var buttonName = document.getElementById("button" + buttonId);
@@ -51,15 +58,18 @@
   </head>
 
   <body>
-	<button id="KEY_POWER" class="btn" onclick="sendButton(this.id)">&Phi;</button><button id="KEY_CYCLEWINDOWS" class="btn" onclick="sendButton(this.id)">Source</button><br/><br/>
+    <button id="KEY_POWER" class="btn" onclick="sendButton(this.id)"><i class="fa fa-power-off"></i></button><button id="KEY_CYCLEWINDOWS" class="btn" onclick="sendButton(this.id)">Source</button><br/><br/>
     <button id="KEY_1" class="btn" onclick="sendButton(this.id)">1</button><button id="KEY_2" class="btn" onclick="sendButton(this.id)">2</button><button id="KEY_3" class="btn" onclick="sendButton(this.id)">3</button><br/>
     <button id="KEY_4" class="btn" onclick="sendButton(this.id)">4</button><button id="KEY_5" class="btn" onclick="sendButton(this.id)">5</button><button id="KEY_6" class="btn" onclick="sendButton(this.id)">6</button><br/>
     <button id="KEY_7" class="btn" onclick="sendButton(this.id)">7</button><button id="KEY_8" class="btn" onclick="sendButton(this.id)">8</button><button id="KEY_9" class="btn" onclick="sendButton(this.id)">9</button><br/>
-    <button id="KEY_INFO" class="btn" onclick="sendButton(this.id)">i</button><button id="KEY_0" class="btn" onclick="sendButton(this.id)">0</button><button id="KEY_PREVIOUS" class="btn" onclick="sendButton(this.id)">PRE</button><br/><br/>
-    <button id="KEY_VOLUMEUP" class="btn" onclick="sendButton(this.id)">V+</button><button id="KEY_MUTE" class="btn" onclick="sendButton(this.id)">MUTE</button><button id="KEY_CHANNELUP" class="btn" onclick="sendButton(this.id)">P+</button><br/>
-    <button id="KEY_VOLUMEDOWN" class="btn" onclick="sendButton(this.id)">V-</button><button id="KEY_LIST" class="btn" onclick="sendButton(this.id)">LIST</button><button id="KEY_CHANNELDOWN" class="btn" onclick="sendButton(this.id)">P-</button><br/><br/>
-    <button id="KEY_RETURN" class="btn" onclick="sendButton(this.id)">&crarr;</button><button id="KEY_DOWN" class="btn" onclick="sendButton(this.id)">DOWN</button><button id="KEY_EXIT"" class="btn" onclick="sendButton(this.id)">EXIT</button>
-    
-	<p id="console"></p>
+    <button id="KEY_INFO" class="btn" onclick="sendButton(this.id)"><i class="fa fa-info"></i></button><button id="KEY_0" class="btn" onclick="sendButton(this.id)">0</button><button id="KEY_PREVIOUS" class="btn" onclick="sendButton(this.id)">PRE</button><br/><br/>
+    <button id="KEY_VOLUMEUP" class="btn" onclick="sendButton(this.id)"><i class="fa fa-volume-up"></i></button><button id="KEY_MUTE" class="btn" onclick="sendButton(this.id)"><i class="fa fa-volume-off"></i></button><button id="KEY_CHANNELUP" class="btn" onclick="sendButton(this.id)"><i class="fa fa-toggle-up"></i></button><br/>
+    <button id="KEY_VOLUMEDOWN" class="btn" onclick="sendButton(this.id)"><i class="fa fa-volume-down"></i></button><button id="KEY_LIST" class="btn" onclick="sendButton(this.id)">LIST</button><button id="KEY_CHANNELDOWN" class="btn" onclick="sendButton(this.id)"><i class="fa fa-toggle-down"></i></button><br/><br/>
+    <button id="KEY_RETURN" class="btn" onclick="sendButton(this.id)">&crarr;</button><button id="KEY_UP" class="btn" onclick="sendButton(this.id)">&uarr;</button><button id="KEY_INFO" class="btn" onclick="sendButton(this.id)"><i class="fa fa-info"></i></button><br/>
+    <button id="KEY_LEFT" class="btn" onclick="sendButton(this.id)">&larr;</button><button id="KEY_ENTER" class="btn" onclick="sendButton(this.id)">&crarr;</button><button id="KEY_RIGHT" class="btn" onclick="sendButton(this.id)">&rarr;</button><br/>
+    <button id="KEY_RETURN" class="btn" onclick="sendButton(this.id)">&#x21B6;</button><button id="KEY_DOWN" class="btn" onclick="sendButton(this.id)">&darr;</button><button id="KEY_EXIT"" class="btn" onclick="sendButton(this.id)">EXIT</button><br/><br/>
+    <button id="KEY_REWIND" class="btn" onclick="sendButton(this.id)"><i class="fa fa-backward"></i></button><button id="KEY_PAUSE" class="btn" onclick="sendButton(this.id)"><i class="fa fa-pause"></i></button><button id="KEY_FORWARD" class="btn" onclick="sendButton(this.id)"><i class="fa fa-forward"></i></button><br/>
+    <button id="KEY_RECORD" class="btn" onclick="sendButton(this.id)"><i style="color: red;" class="fa fa-circle"></i></button><button id="KEY_PLAY" class="btn" onclick="sendButton(this.id)"><i class="fa fa-play"></i></button><button id="KEY_STOP" class="btn" onclick="sendButton(this.id)"><i class="fa fa-stop"></i></button>
+    <p id="console"></p>
   </body>
 </html>
